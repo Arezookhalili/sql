@@ -13,19 +13,29 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 _Hint, search type 1 vs type 2 slowly changing dimensions._
 
+Type 1 (overwrites the address)
+We only store the most recent address information for the customer. When a customer's address is updated, the previous address is overwritten and lost.
+
+Type 2 (retains Changes)
+We maintain a history of address changes by adding start and end dates of each address to track the validity of each address.
+
 Bonus: Are there privacy implications to this, why or why not?
 ```
 Your answer...
 ```
+Type 1 may be less risky from a privacy point of view as we do not keep the historical records, whereas type 2 poses significant challenges and needs stricter controls to protect sensitive customer information.
 
 ## Question 4
-Review the AdventureWorks Schema [here](https://imgur.com/a/u0m8fX6)
+Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
 Your answer...
 ```
+1) AdventureWorks contains detailed tables for different sections of production, HR, sale, etc.
+2) AdventureWorks has a much larger and more complex schema including multiple tables for product, vendor, person, sales, purchasing, and more. Each of them has multiple related tables. This allows for highly granular data capture, reflecting the complexity of a large-scale manufacturing and sales system.
 
+The AdventureWorks schema is for a larger business, has numerous supporting tables and relationships and is significantly more complex than my bookstore ERD. Although this level of details can provide richer reports and operational flexibility, I do not think that it is necessary for a small bookstore. Therefore, no significant changes are required in the bookstore model, though adding more detailed employee or shift management could be considered if the business grows.
 # Criteria
 
 [Assignment Rubric](./assignment_rubric.md)
